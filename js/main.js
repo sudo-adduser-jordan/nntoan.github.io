@@ -1,161 +1,193 @@
+const Reset = "\x1b[0m"
+const Black = "\x1b[30m"
+const Red = "\x1b[31m"
+const Green = "\x1b[32m"
+const Yellow = "\x1b[33m"
+const Blue = "\x1b[34m"
+const Magenta = "\x1b[35m"
+const Cyan = "\x1b[36m"
+const White = "\x1b[37m"
+
 var commandText = function (text) {
     return '[[g;#EEEEEE;]' + text + ']'
 };
 
-var titleText = function (text) {
-    return '[[u;inherit;]' + text + ']'
-};
+var titleText = `
+    ##################################################################################################################
+    |                                                                                                                |              
+    |${Green}         ,.,                            ${Cyan}                                                                        ${Reset}|              
+    |${Green}        MMMM_    ,..,                   ${Cyan}                                                                        ${Reset}|
+    |${Green}          "_ "__"MMMMM          ,...,,  ${Cyan}                                       $$\\                             ${Reset} |                                 
+    |${Green}   ,..., __." --"    ,.,     _-"MMMMMMM ${Cyan}                                       $$ |                             ${Reset}|                             
+    |${Green}  MMMMMM"___ "_._   MMM"_."" _ """"""   ${Cyan}         $$\\  $$$$$$\\   $$$$$$\\   $$$$$$$ | $$$$$$\\  $$$$$$$\\      ${Reset}     |             
+    |${Green}   """""    "" ,\\_.   "_. ."           ${Cyan}          \\__|$$  __$$\\ $$  __$$\\ $$  __$$ | \\____$$\\ $$  __$$\\    ${Reset}      |                             
+    |${Green}          ,., _"__\\__./ ."             ${Cyan}          $$\\ $$ /  $$ |$$ |  \\__|$$ /  $$ | $$$$$$$ |$$ |  $$ |       ${Reset}  |                         
+    |${Green}         MMMMM_"  "_    ./              ${Cyan}         $$ |$$ |  $$ |$$ |      $$ |  $$ |$$  __$$ |$$ |  $$ |         ${Reset}|                 
+    |${Green}          ''''      (    )              ${Cyan}         $$ |\\$$$$$$  |$$ |      \\$$$$$$$ |\\$$$$$$$ |$$ |  $$ |      ${Reset}   |                     
+    |${Reset}   ._______________.-'____"---._.       ${Cyan}         $$ | \\______/ \\__|       \\_______| \\_______|\\__|  \\__|   ${Reset}      |                         
+    |${Reset}    \\                          /       ${Cyan}    $$\\   $$ |                                                          ${Reset} |                     
+    |${Reset}     \\________________________/        ${Cyan}    \\$$$$$$  |                                                          ${Reset} |                     
+    |${Reset}     (_)                    (_)         ${Cyan}    \\______/                                                           ${Reset} |
+    |                                                                                                                |
+    |                                                                                                                |
+    |    "A byte of time is a byte of gold, but you can't buy that byte of time, with a byte of gold.”               |
+    |                                                                                                                |
+    |    Please type ${commandText(`menu`)} for a list of commands.                                                                    |
+    |                                                                                                                |
+    ##################################################################################################################
+`
+
+var messageText = `
+    ##################################################################################################################
+    |                                                                                                                |
+    |    "A byte of time is a byte of gold, but you can't buy that byte of time, with a byte of gold.”               |
+    |                                                                                                                |
+    |    Please type ${commandText(`menu`)} for a list of commands.                                                                    |
+    |                                                                                                                |
+    ##################################################################################################################
+` 
+
+
 
 var App = {
     allSection: false,
-    motd: function (firstLoad) {
-        if (typeof firstLoad === 'undefined') {
-            firstLoad = false;
-        }
-
-        var basicMsg = '####################################################################################\n' +
-            '|                                                                                  |\n' +
-            '|    Hi, I\'m ' + commandText('Toan Nguyen') + ' - Just another guy in Hanoi, Vietnam.                     |\n' +
-            '|    Please type ' + commandText('menu') + ' for a list of commands.                                      |\n' +
-            '|                                                                                  |\n' +
-            '####################################################################################\n';
-
-        var advMsg = '###############################################################################################################\n' +
-            '|                                                                                                             |\n' +
-            "|[[b;#00DE12;]   $$$$$$$$\\                                  $$\\   $$\\                                                      ]|\n" +
-            "|[[b;#00DE12;]   \\__$$  __|                                 $$$\\  $$ |                                                     ]|\n" +
-            "|[[b;#00DE12;]      $$ | $$$$$$\\   $$$$$$\\  $$$$$$$\\        $$$$\\ $$ | $$$$$$\\  $$\\   $$\\ $$\\   $$\\  $$$$$$\\  $$$$$$$\\     ]|\n" +
-            "|[[b;#00DE12;]      $$ |$$  __$$\\  \\____$$\\ $$  __$$\\       $$ $$\\$$ |$$  __$$\\ $$ |  $$ |$$ |  $$ |$$  __$$\\ $$  __$$\\    ]|\n" +
-            "|[[b;#00DE12;]      $$ |$$ /  $$ | $$$$$$$ |$$ |  $$ |      $$ \\$$$$ |$$ /  $$ |$$ |  $$ |$$ |  $$ |$$$$$$$$ |$$ |  $$ |   ]|\n" +
-            "|[[b;#00DE12;]      $$ |$$ |  $$ |$$  __$$ |$$ |  $$ |      $$ |\\$$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$   ____|$$ |  $$ |   ]|\n" +
-            "|[[b;#00DE12;]      $$ |\\$$$$$$  |\\$$$$$$$ |$$ |  $$ |      $$ | \\$$ |\\$$$$$$$ |\\$$$$$$  |\\$$$$$$$ |\\$$$$$$$\\ $$ |  $$ |   ]|\n" +
-            "|[[b;#00DE12;]      \\__| \\______/  \\_______|\\__|  \\__|      \\__|  \\__| \\____$$ | \\______/  \\____$$ | \\_______|\\__|  \\__|   ]|\n" +
-            "|[[b;#00DE12;]                                                        $$\\   $$ |          $$\\   $$ |                       ]|\n" +
-            "|[[b;#00DE12;]                                                        \\$$$$$$  |          \\$$$$$$  |                       ]|\n" +
-            "|[[b;#00DE12;]                                                         \\______/            \\______/                        ]|\n" +
-            '|                                                                                                             |\n' +
-            '|                                                                                                             |\n' +
-            '|      Hi, I\'m ' + commandText('Toan Nguyen') + ' - Just another guy from Hanoi, Vietnam.                                            |\n' +
-            '|      Please type ' + commandText('menu') + ' for a list of commands.                                                               |\n' +
-            '|                                                                                                             |\n' +
-            '###############################################################################################################\n';
-
-        if (!firstLoad) {
-            this.echo("\n" + basicMsg);
-        } else {
-            return advMsg;
-        }
-    },
     menu: function () {
         this.echo();
-        this.echo('|  ' + commandText('motd') + '               - Display Message of the Day');
+        this.echo('\t\t|  ' + commandText('motd') + '               - Display Message of the Day');
         this.echo();
-        this.echo('|  ' + commandText('about') + '              - Summary of me');
-        this.echo('|  ' + commandText('projects') + '           - Recent projects of mine');
-        this.echo('|  ' + commandText('skills') + '             - What I can do');
+        this.echo('\t\t|  ' + commandText('about') + '              - Summary of me');
+        this.echo('\t\t|  ' + commandText('fastfetch') + '             - Get my dev environment value');
+        this.echo('\t\t|  ' + commandText('projects') + '           - Recent projects of mine');
+        this.echo('\t\t|  ' + commandText('skills') + '             - What I can do');
         this.echo();
-        this.echo('|  ' + commandText('github') + '             - Das github');
-        this.echo('|  ' + commandText('linkedin') + '           - How I connect for work things');
-        this.echo('|  ' + commandText('facebook') + '           - My personal social area');
-        this.echo('|  ' + commandText('twitter') + '            - When 140 characters is enough');
+        this.echo('\t\t|  ' + commandText('github') + '             - Das github');
+        this.echo('\t\t|  ' + commandText('linkedin') + '           - How I connect for work things');
         this.echo();
-        this.echo('|  ' + commandText('contact') + '            - Contact me');
-        this.echo('|  ' + commandText('credits') + '            - Credits for this website');
+        this.echo('\t\t|  ' + commandText('contact') + '            - Contact me');
+        this.echo('\t\t|  ' + commandText('credits') + '            - Credits for this website');
         this.echo();
-        this.echo('|  ' + commandText('all') + '                - Run all commands');
-        this.echo();
-    },
-    github: function () {
-        this.echo();
-        this.echo('|  https://github.com/nntoan');
+        this.echo('\t\t|  ' + commandText('clear') + '              - Clear screen');
+        this.echo('\t\t|  ' + commandText('all') + '                - Run all commands');
         this.echo();
     },
-    facebook: function () {
+    motd: function (firstLoad) {
+        if (typeof firstLoad === 'undefined') firstLoad = false;
+        if (!firstLoad) this.echo("\n" + messageText);
+        if (firstLoad) return titleText;
+    },
+    about: function () { // maybe combine fastfetch
         this.echo();
-        this.echo('|  https://www.facebook.com/nntoans');
+        this.echo('\t\t|  Name:         ' + commandText('Jordan'));
+        this.echo();
+        this.echo('\t\t|  Location:     ' + commandText('United States, Remote'));
+        this.echo();
+        this.echo('\t\t|  Vocation:     '+commandText('Software Developer'));
+        this.echo('\t\t|                Experienced in multiple languages, tools, and environments');
+        this.echo('\t\t|                Use ' + commandText('fastfetch') + ' to see the tools I use for work.');
+        this.echo();
+        this.echo('\t\t|  Employment:   I am currently seeking a ' + commandText('Remote') + ' position.');
+        this.echo('\t\t|                Get in touch if you\'d like more information ' + commandText('sudo.sendmail.jordan@gmail.com') + '!');
         this.echo();
     },
-    linkedin: function () {
-        this.echo();
-        this.echo('|  https://linkedin.com/in/nntoan');
-        this.echo();
-    },
-    twitter: function () {
-        this.echo();
-        this.echo('|  http://www.twitter.com/nntoans');
-        this.echo();
-    },
-    about: function () {
-        var currentYear = new Date().getFullYear();
-        this.echo();
-        this.echo('|  Name:         ' + commandText('Toan Nguyen a.k.a Nguy&#7877;n Ng&#7885;c To&#7843;n'));
-        this.echo('|  DOB:          23/09/1993 (' + commandText((currentYear - 1993)) + ' y.o)');
-        this.echo('|  Location:     ' + commandText('Hanoi, Vietnam'));
-        this.echo();
-        this.echo('|  Vocation:     I am a Fullstack Developer (primarily ' + commandText('PHP/NodeJS') + ') and DevOps (Linux, AWS) specialist.');
-        this.echo('|                I have been working in enterprise environments for ' + commandText('the last 7 years.'));
-        this.echo('|                I also do my fair share of front end development using technologies such as ' + commandText('Angular.js') + ' and ' + commandText('jQuery'));
-        this.echo();
-        this.echo('|  Employment:   I am currently ' + commandText('freelancing') + ' in the ' + commandText('Hanoi') + ' area. Get in touch if you\'d like to discuss a proposal!');
+    fastfetch: function () {
+        this.echo(`
+        |       
+        |            -/oyddmdhs+:.                 user1@computer1
+        |        -odNMMMMMMMMNNmhy+-'              ---------------
+        |      -yNMMMMMMMMMMMNNNmmdhy+-            OS: Gentoo Linux x86_64
+        |    'omMMMMMMMMMMMMNmdmmmmddhhy/'         Kernel: Linux 6.12.25-gentoo-dist
+        |    omMMMMMMMMMMMNhhyyyohmdddhhhdo'       Packages: 950 (emerge), 7 (flatpak)
+        |   .ydMMMMMMMMMMdhs++so/smdddhhhhdm+'     Shell: zsh 5.9
+        |    oyhdmNMMMMMMMNdyooydmddddhhhhyhNd.    DE: Xfce4 4.20
+        |     :oyhhdNNMMMMMMMNNNmmdddhhhhhyymMh    WM: Xfwm4 (X11)
+        |       .:+sydNMMMMMNNNmmmdddhhhhhhmMmy    Theme: Adwaita [GTK3]
+        |          /mMMMMMMNNNmmmdddhhhhhmMNhs:    Icons: win10x
+        |       'oNMMMMMMMNNNmmmddddhhdmMNhs+'     Cursor: Adwaita
+        |     'sNMMMMMMMMNNNmmmdddddmNMmhs/.       Terminal: xfce4-terminal 1.1.5
+        |    /NMMMMMMMMNNNNmmmdddmNMNdso:'         Terminal Font: NerdFont NF 
+        |   +MMMMMMMNNNNNmmmmdmNMNdso/-            
+        |   yMMNNNNNNNmmmmmNNMmhs+/-'              
+        |   /hMMNNNNNNNNMNdhs++/-'                 
+        |   '/ohdmmddhys+++/:.'                    
+        |     '-//////:--.                         
+        |       `);
         this.echo();
     },
     projects: function () {
         this.echo();
-        this.echo('|  ' + commandText('Kathmandu') + '      https://www.kathmandu.co.nz              // Magento 2');
-        this.echo('|  ' + commandText('Total Tools') + '    https://www.totaltools.com.au            // Magento 2');
-        this.echo('|  ' + commandText('Windsor Smith') + '  https://www.windsorsmith.com.au          // Magento 2');
-        this.echo('|  ' + commandText('Oh My Bash!') + '    https://github.com/ohmybash/oh-my-bash   // Bash Scripts');
-        this.echo('|  ' + commandText('LuyenCong') + '      https://www.luyencong.net                // MyBB');
-        this.echo('|  ' + commandText('GoJira') + '         http://github.com/nntoan/gojira          // Symfony CLI');
-        this.echo('|  ' + commandText('Cezerin2') + '       https://cezerin.org                      // React & Node.js');
-        this.echo('|  ' + commandText('UpLink') + '         https://uplinkenglish.com                // AngularJS');
+        this.echo('\t\t|  ' + commandText('Code Racer') + '\t\t\t\t\t\t\t' + 'https://github.com/cody/code-racer');
+        this.echo('\t\t|  ' + commandText('Linux Themes') + '\t\t\t\t\t\t  ' + 'https://github.com/linuxthemes');
+        this.echo('\t\t|  ' + commandText('Runelite Plugin') + '\t\t\t\t\t   ' + 'https://github.com/runelite');
+        this.echo('\t\t|  ' + commandText('Bottles: Eve Online Launcher') + '\t\t  ' + 'https://github.com/ohmybash/oh-my-bash');
         this.echo();
     },
     skills: function () {
         this.echo();
-        this.echo('|  ' + commandText('Languages'));
+        this.echo('\t\t>  ' + commandText('Languages'));
         this.echo();
-        this.echo('|  ' + commandText('PHP') + '                    ##[[g;#00DE12;]#################################################]  ##');
-        this.echo('|  ' + commandText('Linux') + '                  ##[[g;#42D100;]################################################]   ##');
-        this.echo('|  ' + commandText('React & Node.js') + '        ##[[g;#5BD100;]############################################]       ##');
-        this.echo('|  ' + commandText('.NET (C#)') + '              ##[[g;#B2D100;]###############################]                    ##');
-        this.echo('|  ' + commandText('Java') + '                   ##[[g;#D1B900;]####################]                               ##');
+        this.echo('\t\t  \ue61d  | ' + 'Javascript');
+        this.echo('\t\t  \ue738  | ' + 'Java');
+        this.echo('\t\t  \ue73c  | ' + 'Python');
+        this.echo('\t\t  \udb81\udfd3  | ' + 'Go');
+        this.echo('\t\t  \udb81\ude72  | ' + 'C++');
+        this.echo('\t\t  \ue61e  | ' + 'C');
+        this.echo('\t\t  \ue760  | ' + 'Bash');
         this.echo();
-        this.echo('|  ' + commandText('Frameworks and CMS'));
+        this.echo('\t\t>  ' + commandText('Frameworks'));
         this.echo();
-        this.echo('|  ' + commandText('Magento 2') + '              ##[[g;#00DE12;]##################################################] ##');
-        this.echo('|  ' + commandText('Open Cart') + '              ##[[g;#5BD100;]#############################################]      ##');
-        this.echo('|  ' + commandText('MyBB') + '                   ##[[g;#99D100;]############################################]       ##');
-        this.echo('|  ' + commandText('AngularJS') + '              ##[[g;#B2D100;]########################################]           ##');
-        this.echo('|  ' + commandText('Cake PHP') + '               ##[[g;#D16200;]##############]                                     ##');
-        this.echo('|  ' + commandText('Symfony 2') + '              ##[[g;#D13F00;]#########]                                          ##');
-        this.echo('|  ' + commandText('Laravel') + '                ##[[g;#D13F00;]#########]                                          ##');
+        this.echo('\t\t  \ue7ba  | ' + 'React');
+        this.echo('\t\t  \ue8ac  | ' + 'Spring');
+        this.echo('\t\t  \udb81\udebf  | ' + 'Angular');
         this.echo();
-        this.echo('|  ' + commandText('Other'));
+        this.echo('\t\t>  ' + commandText('Platforms'));
         this.echo();
-        this.echo('|  ' + commandText('AWS') + '                    ##[[g;#5BD100;]############################################]       ##');
-        this.echo('|  ' + commandText('Linux') + '                  ##[[g;#5BD100;]#################################################]  ##');
-        this.echo('|  ' + commandText('Grunt/Gulp') + '             ##[[g;#B2D100;]#######################################]            ##');
-        this.echo('|  ' + commandText('Docker/Hyper-V') + '         ##[[g;#5BD100;]###########################################]        ##');
+        this.echo('\t\t  \ue7e6  | ' + 'Linux');
+        this.echo('\t\t  \ue70f  | ' + 'Windows');
+        this.echo('\t\t  \uf21f  | ' + 'Docker');
+        this.echo('\t\t  \uebaa  | ' + 'Cloud');
+        this.echo();
+        this.echo('\t\t>  ' + commandText('Tools'));
+        this.echo();
+        this.echo('\t\t  \ue8da  | ' + 'VSCode');
+        this.echo('\t\t  \ue745  | ' + 'Librewolf');
+        this.echo('\t\t  \uf092  | ' + 'GitHub Desktop');
+        this.echo();
+    },
+    certifications: function () {
+        this.echo();
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo();
+    },
+    github: function () {
+        this.echo();
+        this.echo('\t\t|  https://github.com/sudo-adduser-jordan');
+        this.echo();
+    },
+    linkedin: function () {
+        this.echo();
+        this.echo('\t\t|  https://github.com/sudo-adduser-jordan');
         this.echo();
     },
     contact: function () {
         this.echo();
-        this.echo('|  ' + commandText('Phone') + ':         091.883.1338');
-        this.echo('|  ' + commandText('Email') + ':         business@nntoan.com');
-        this.echo('|  ' + commandText('LinkedIn') + ':      https://linkedin.com/in/nntoan');
+        this.echo('\t\t|  ' + commandText('Phone') + ':         420.420.6969');
+        this.echo('\t\t|  ' + commandText('Email') + ':         sudo.sendmail.jordan@gmail.com');
+        this.echo('\t\t|  ' + commandText('LinkedIn') + ':      https://github.com/sudo-adduser-jordan');
         this.echo();
     },
     credits: function () {
         this.echo();
-        this.echo('|  Crafted with ♥ by ' + commandText('Toan Nguyen'));
-        this.echo('|  Using ' + commandText('Jquery Terminal Emulator') + ' by ' + commandText('Jakub Jankiewicz') + ': http://terminal.jcubic.pl');
-        this.echo();
-    },
-    awards: function () {
-        this.echo();
-        this.echo('|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('|  ' + commandText('Magento 2 Certificated Professional Developer Plus'));
+        this.echo('\t\t|  Forked and refactored from: https://github.com/');
+        this.echo('\t\t|  Using ' + commandText('Jquery Terminal Emulator') + ' by ' + commandText('Jakub Jankiewicz') + ': http://terminal.jcubic.pl');
         this.echo();
     },
     all: function () {
@@ -163,37 +195,34 @@ var App = {
         this.clear();
         this.exec('motd');
         this.exec('about');
+        this.exec('fastfetch');
         this.exec('projects');
         this.exec('skills');
-        this.exec('awards');
+        this.exec('certifications');
         this.exec('contact');
         this.exec('github');
         this.exec('linkedin');
-        this.exec('facebook');
-        this.exec('twitter');
         this.exec('credits');
         App.allSection = false;
     }
 };
-
 jQuery(document).ready(function ($) {
+    // if on mobile forward to
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = 'https://linkedin.com/in/nntoan';
-    } else {
+        window.location.href = 'https:github.com/sudo-adduser-jordan';
+    } else { 
         $('body').terminal(App, {
-            greetings: function (cb) {
-                cb(App.motd(true));
+            completion: true,
+            checkArity: false,
+            greetings: function (cb) { 
+                cb(App.motd(true)) 
             },
-            onBlur: function () {
-                return false
+            onBlur: function () { 
+                return false 
             },
             onClear: function(terminal) {
-                if (App.allSection !== true) {
-                    terminal.echo(App.motd(true));
-                }
+                if (App.allSection !== true) terminal.echo(App.motd(true));
             },
-            completion: true,
-            checkArity: false
         })
     }
 });

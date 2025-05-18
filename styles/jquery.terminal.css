@@ -5,7 +5,13 @@
  * Copyright (c) 2011-2013 Jakub Jankiewicz <http://jcubic.pl>
  *
  */
-.terminal .terminal-output .format, .cmd .format,
+
+
+
+
+
+
+ .terminal .terminal-output .format, .cmd .format,
 .cmd .prompt, .cmd .prompt div, .terminal .terminal-output div div{
     display: inline-block;
 }
@@ -88,7 +94,7 @@
     float: left;
 }
 .terminal, .cmd {
-    font-family: 'Source Code Pro', FreeMono, monospace;
+    /* font-family: 'Source Code Pro', FreeMono, monospace; */
     color: #aaa;
     background-color: #000;
     font-size: 12px;
