@@ -188,15 +188,15 @@ var App = {
     },
     certifications: function () {
         this.echo();
-        this.echo('\t\t|  ' + commandText('Java Developer') + '\t\t\t\t' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Java Backend Developer') + '\t\t' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Java Desktop Developer') + '\t\t' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Java Spring Security ') + '\t\t ' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Python Developer') + '\t\t\t  ' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Go Developer') + '\t\t\t\t  ' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Front End Developer') + '\t\t   ' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Javascript Developer') + '\t\t  ' + 'https:github.com/sudo-adduser-jordan');
-        this.echo('\t\t|  ' + commandText('Linux Certified') + '\t\t\t   ' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Java Developer') + '\t\t\t\t' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Java Backend Developer') + '\t\t' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Java Desktop Developer') + '\t\t' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Java Spring Security ') + '\t\t ' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Python Developer') + '\t\t\t  ' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Go Developer') + '\t\t\t\t  ' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Front End Developer') + '\t\t   ' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Javascript Developer') + '\t\t  ' + 'https://github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Linux Certified') + '\t\t\t   ' + 'https://github.com/sudo-adduser-jordan');
         this.echo();
     },
     github: function () {
