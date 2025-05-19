@@ -158,32 +158,32 @@ var App = {
         this.echo();
         this.echo('\t\t>  ' + commandText('Languages'));
         this.echo();
-        this.echo('\t\t  \ue61d  | ' + 'Javascript');
-        this.echo('\t\t  \ue738  | ' + 'Java');
-        this.echo('\t\t  \ue73c  | ' + 'Python');
-        this.echo('\t\t  \udb81\udfd3  | ' + 'Go');
-        this.echo('\t\t  \udb81\ude72  | ' + 'C++');
-        this.echo('\t\t  \ue61e  | ' + 'C');
-        this.echo('\t\t  \ue760  | ' + 'Bash');
+        this.echo('\t\t  ' + commandText('\ue61d') + '  | ' + 'Javascript');
+        this.echo('\t\t  ' + commandText('\ue738') + '  | ' + 'Java');
+        this.echo('\t\t  ' + commandText('\ue73c') + '  | ' + 'Python');
+        this.echo('\t\t  ' + commandText('\udb81\udfd3') + '  | ' + 'Go');
+        this.echo('\t\t  ' + commandText('\udb81\ude72') + '  | ' + 'C++');
+        this.echo('\t\t  ' + commandText('\ue61e') + '  | ' + 'C');
+        this.echo('\t\t  ' + commandText('\ue760') + '  | ' + 'Bash');
         this.echo();
         this.echo('\t\t>  ' + commandText('Frameworks'));
         this.echo();
-        this.echo('\t\t  \ue7ba  | ' + 'React');
-        this.echo('\t\t  \ue8ac  | ' + 'Spring');
-        this.echo('\t\t  \udb81\udebf  | ' + 'Angular');
+        this.echo('\t\t  ' + commandText('\ue7ba') + '  | ' + 'React');
+        this.echo('\t\t  ' + commandText('\ue8ac') + '  | ' + 'Spring');
+        this.echo('\t\t  ' + commandText('\udb81\udebf') + '  | ' + 'Angular');
         this.echo();
         this.echo('\t\t>  ' + commandText('Platforms'));
         this.echo();
-        this.echo('\t\t  \ue7e6  | ' + 'Linux');
-        this.echo('\t\t  \ue70f  | ' + 'Windows');
-        this.echo('\t\t  \uf21f  | ' + 'Docker');
-        this.echo('\t\t  \uebaa  | ' + 'Cloud');
+        this.echo('\t\t  ' + commandText('\ue7e6') + '  | ' + 'Linux');
+        this.echo('\t\t  ' + commandText('\ue70f') + '  | ' + 'Windows');
+        this.echo('\t\t  ' + commandText('\uebaa') + '  | ' + 'Cloud');
+        this.echo('\t\t  ' + commandText('\uf21f') + '  | ' + 'Docker');
         this.echo();
         this.echo('\t\t>  ' + commandText('Tools'));
         this.echo();
-        this.echo('\t\t  \ue8da  | ' + 'VSCode');
-        this.echo('\t\t  \ue745  | ' + 'Librewolf');
-        this.echo('\t\t  \uf092  | ' + 'GitHub Desktop');
+        this.echo('\t\t  ' + commandText('\ue8da') + '  | ' + 'VSCode');
+        this.echo('\t\t  ' + commandText('\ue745') + '  | ' + 'Librewolf');
+        this.echo('\t\t  ' + commandText('\uf092') + '  | ' + 'GitHub Desktop');
         this.echo();
     },
     certifications: function () {
@@ -218,7 +218,7 @@ var App = {
     },
     credits: function () {
         this.echo();
-        this.echo('\t\t|  Forked and refactored from: https://github.com/');
+        this.echo('\t\t|  Forked and refactored from: https://github.com/nntoan/nntoan.github.io');
         this.echo('\t\t|  Using ' + commandText('Jquery Terminal Emulator') + ' by ' + commandText('Jakub Jankiewicz') + ': http://terminal.jcubic.pl');
         this.echo();
     },
