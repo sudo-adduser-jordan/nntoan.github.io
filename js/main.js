@@ -240,9 +240,9 @@ var App = {
 };
 jQuery(document).ready(function ($) {
     // if on mobile forward to
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = 'https://github.com/sudo-adduser-jordan';
-    } else { 
+    // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // window.location.href = 'https://github.com/sudo-adduser-jordan';
+    // } else { 
         $('body').terminal(App, {
             completion: true,
             checkArity: false,
@@ -256,5 +256,5 @@ jQuery(document).ready(function ($) {
                 if (App.allSection !== true) terminal.echo(App.motd(true));
             },
         })
-    }
+    // }
 });
