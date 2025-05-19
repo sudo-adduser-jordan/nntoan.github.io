@@ -82,8 +82,6 @@ var messageText = `
     ##################################################################################################################
 ` 
 
-
-
 var App = {
     allSection: false,
     menu: function () {
@@ -91,7 +89,7 @@ var App = {
         this.echo('\t\t|  ' + commandText('motd') + '               - Display Message of the Day');
         this.echo();
         this.echo('\t\t|  ' + commandText('about') + '              - Summary of me');
-        this.echo('\t\t|  ' + commandText('fastfetch') + '             - Get my dev environment value');
+        this.echo('\t\t|  ' + commandText('fastfetch') + '          - Get my dev environment value');
         this.echo('\t\t|  ' + commandText('projects') + '           - Recent projects of mine');
         this.echo('\t\t|  ' + commandText('skills') + '             - What I can do');
         this.echo();
@@ -110,7 +108,7 @@ var App = {
         if (!firstLoad) this.echo("\n" + messageText);
         if (firstLoad) return titleText;
     },
-    about: function () { // maybe combine fastfetch
+    about: function () { // maybe combine with fastfetch
         this.echo();
         this.echo('\t\t|  Name:         ' + commandText('Jordan'));
         this.echo();
@@ -121,7 +119,7 @@ var App = {
         this.echo('\t\t|                Use ' + commandText('fastfetch') + ' to see the tools I use for work.');
         this.echo();
         this.echo('\t\t|  Employment:   I am currently seeking a ' + commandText('Remote') + ' position.');
-        this.echo('\t\t|                Get in touch if you\'d like more information ' + commandText('sudo.sendmail.jordan@gmail.com') + '!');
+        this.echo('\t\t|                Get in touch if you\'d like more information sudo.sendmail.jordan@gmail.com');
         this.echo();
     },
     fastfetch: function () {
@@ -190,16 +188,15 @@ var App = {
     },
     certifications: function () {
         this.echo();
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
-        this.echo('\t\t|  ' + commandText('Magento 2 Certificated Professional Developer: https://u.magento.com/certification/directory/dev/1968053/'));
+        this.echo('\t\t|  ' + commandText('Java Developer') + '\t\t\t\t' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Java Backend Developer') + '\t\t' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Java Desktop Developer') + '\t\t' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Java Spring Security ') + '\t\t ' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Python Developer') + '\t\t\t  ' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Go Developer') + '\t\t\t\t  ' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Front End Developer') + '\t\t   ' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Javascript Developer') + '\t\t  ' + 'https:github.com/sudo-adduser-jordan');
+        this.echo('\t\t|  ' + commandText('Linux Certified') + '\t\t\t   ' + 'https:github.com/sudo-adduser-jordan');
         this.echo();
     },
     github: function () {
