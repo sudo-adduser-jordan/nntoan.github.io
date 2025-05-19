@@ -241,7 +241,7 @@ var App = {
 jQuery(document).ready(function ($) {
     // if on mobile forward to
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = 'https:github.com/sudo-adduser-jordan';
+        window.location.href = 'https://github.com/sudo-adduser-jordan';
     } else { 
         $('body').terminal(App, {
             completion: true,
