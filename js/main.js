@@ -47,7 +47,7 @@ var commandText = function (text) {
     return '[[g;#EEEEEE;]' + text + ']'
 };
 
-var titleText = `
+var header = `
     ##################################################################################################################
     |                                                                                                                |
     |${LIGHT_GREEN}         ,.,                            ${LIGHT_CYAN}                                                                   ${RESET} |
@@ -103,10 +103,9 @@ var App = {
         this.echo('\t\t|  ' + commandText('all') + '                - Run all commands');
         this.echo();
     },
-    motd: function (firstLoad) {
-        if (typeof firstLoad === 'undefined') firstLoad = false;
-        if (!firstLoad) this.echo("\n" + messageText);
-        if (firstLoad) return titleText;
+    motd: function () {
+        this.echo(messageText);
+
     },
     about: function () { // maybe combine with fastfetch
         this.echo();
@@ -239,22 +238,14 @@ var App = {
     }
 };
 jQuery(document).ready(function ($) {
-    // if on mobile forward to
-    // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        // window.location.href = 'https://github.com/sudo-adduser-jordan';
-    // } else { 
         $('body').terminal(App, {
             completion: true,
             checkArity: false,
-            greetings: function (cb) { 
-                cb(App.motd(true)) 
-            },
-            onBlur: function () { 
-                return false 
-            },
+            greetings: messageText,
             onClear: function(terminal) {
-                if (App.allSection !== true) terminal.echo(App.motd(true));
+                terminal.echo(header);
             },
         })
-    // }
-});
+        .exec('all')
+        window.scrollTo(0, 0);
+    });
