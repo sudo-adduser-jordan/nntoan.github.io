@@ -1,12 +1,47 @@
-const Reset = "\x1b[0m"
-const Black = "\x1b[30m"
-const Red = "\x1b[31m"
-const Green = "\x1b[32m"
-const Yellow = "\x1b[33m"
-const Blue = "\x1b[34m"
-const Magenta = "\x1b[35m"
-const Cyan = "\x1b[36m"
-const White = "\x1b[37m"
+// Light Foreground Colors
+const LIGHT_BLACK = "\x1b[30;1m"; // Bright Black (Gray)
+const LIGHT_RED = "\x1b[31;1m";   // Light Red
+const LIGHT_GREEN = "\x1b[32;1m"; // Light Green
+const LIGHT_YELLOW = "\x1b[33;1m";// Light Yellow
+const LIGHT_BLUE = "\x1b[34;1m"; // Light Blue
+const LIGHT_MAGENTA = "\x1b[35;1m"; // Light Magenta
+const LIGHT_CYAN = "\x1b[36;1m"; // Light Cyan
+const LIGHT_WHITE = "\x1b[37;1m"; // Light White (Bright White)
+
+// Light Background Colors
+const BG_LIGHT_BLACK = "\x1b[40;1m"; // Bright Black Background
+const BG_LIGHT_RED = "\x1b[41;1m";   // Light Red Background
+const BG_LIGHT_GREEN = "\x1b[42;1m"; // Light Green Background
+const BG_LIGHT_YELLOW = "\x1b[43;1m"; // Light Yellow Background
+const BG_LIGHT_BLUE = "\x1b[44;1m"; // Light Blue Background
+const BG_LIGHT_MAGENTA = "\x1b[45;1m"; // Light Magenta Background
+const BG_LIGHT_CYAN = "\x1b[46;1m"; // Light Cyan Background
+const BG_LIGHT_WHITE = "\x1b[47;1m"; // Light White Background
+
+// Foreground Colors
+const BLACK = "\x1b[30m";
+const RED = "\x1b[31m";
+const GREEN = "\x1b[32m";
+const YELLOW = "\x1b[33m";
+const BLUE = "\x1b[34m";
+const MAGENTA = "\x1b[35m";
+const CYAN = "\x1b[36m";
+const WHITE = "\x1b[37m";
+
+// Background Colors
+const BG_BLACK = "\x1b[40m";
+const BG_RED = "\x1b[41m";
+const BG_GREEN = "\x1b[42m";
+const BG_YELLOW = "\x1b[43m";
+const BG_BLUE = "\x1b[44m";
+const BG_MAGENTA = "\x1b[45m";
+const BG_CYAN = "\x1b[46m";
+const BG_WHITE = "\x1b[47m";
+
+// Formatting Options
+const BOLD = "\x1b[1m";
+const UNDERLINE = "\x1b[4m";
+const RESET = "\x1b[0m";
 
 var commandText = function (text) {
     return '[[g;#EEEEEE;]' + text + ']'
@@ -15,19 +50,19 @@ var commandText = function (text) {
 var titleText = `
     ##################################################################################################################
     |                                                                                                                |
-    |${Green}         ,.,                            ${Cyan}                                                                        ${Reset}|
-    |${Green}        MMMM_    ,..,                   ${Cyan}                                                                        ${Reset}|
-    |${Green}          "_ "__"MMMMM          ,...,,  ${Cyan}                                       $$\\                             ${Reset} |
-    |${Green}   ,..., __." --"    ,.,     _-"MMMMMMM ${Cyan}                                       $$ |                             ${Reset}|
-    |${Green}  MMMMMM"___ "_._   MMM"_."" _ """"""   ${Cyan}         $$\\  $$$$$$\\   $$$$$$\\   $$$$$$$ | $$$$$$\\  $$$$$$$\\      ${Reset}     |
-    |${Green}   """""    "" ,\\_.   "_. ."           ${Cyan}          \\__|$$  __$$\\ $$  __$$\\ $$  __$$ | \\____$$\\ $$  __$$\\    ${Reset}      |
-    |${Green}          ,., _"__\\__./ ."             ${Cyan}          $$\\ $$ /  $$ |$$ |  \\__|$$ /  $$ | $$$$$$$ |$$ |  $$ |       ${Reset}  |
-    |${Green}         MMMMM_"  "_    ./              ${Cyan}         $$ |$$ |  $$ |$$ |      $$ |  $$ |$$  __$$ |$$ |  $$ |         ${Reset}|
-    |${Green}          ''''      (    )              ${Cyan}         $$ |\\$$$$$$  |$$ |      \\$$$$$$$ |\\$$$$$$$ |$$ |  $$ |      ${Reset}   |
-    |${Reset}   ._______________.-'____"---._.       ${Cyan}         $$ | \\______/ \\__|       \\_______| \\_______|\\__|  \\__|   ${Reset}      |
-    |${Reset}    \\                          /       ${Cyan}    $$\\   $$ |                                                          ${Reset} |
-    |${Reset}     \\________________________/        ${Cyan}    \\$$$$$$  |                                                          ${Reset} |
-    |${Reset}     (_)                    (_)         ${Cyan}    \\______/                                                           ${Reset} |
+    |${LIGHT_GREEN}         ,.,                            ${LIGHT_CYAN}                                                                   ${RESET} |
+    |${LIGHT_GREEN}        MMMM_    ,..,                   ${LIGHT_CYAN}                                                                   ${RESET} |
+    |${LIGHT_GREEN}          "_ "__"MMMMM          ,...,,  ${LIGHT_CYAN}                                     $$\\                          ${RESET}  |
+    |${LIGHT_GREEN}   ,..., __." --"    ,.,     _-"MMMMMMM ${LIGHT_CYAN}                                     $$ |                          ${RESET} |
+    |${LIGHT_GREEN}  MMMMMM"___ "_._   MMM"_."" _ """"""   ${LIGHT_CYAN}       $$\\  $$$$$$\\   $$$$$$\\   $$$$$$$ | $$$$$$\\  $$$$$$$\\   ${RESET}      |
+    |${LIGHT_GREEN}   """""    "" ,\\_.   "_. ."           ${LIGHT_CYAN}        \\__|$$  __$$\\ $$  __$$\\ $$  __$$ | \\____$$\\ $$  __$$\\ ${RESET}       |
+    |${LIGHT_GREEN}          ,., _"__\\__./ ."             ${LIGHT_CYAN}        $$\\ $$ /  $$ |$$ |  \\__|$$ /  $$ | $$$$$$$ |$$ |  $$ |    ${RESET}   |
+    |${LIGHT_GREEN}         MMMMM_"  "_    ./              ${LIGHT_CYAN}       $$ |$$ |  $$ |$$ |      $$ |  $$ |$$  __$$ |$$ |  $$ |      ${RESET} |
+    |${LIGHT_GREEN}          ''''      (    )              ${LIGHT_CYAN}       $$ |\\$$$$$$  |$$ |      \\$$$$$$$ |\\$$$$$$$ |$$ |  $$ |   ${RESET}    |
+    |${RESET}   ._______________.-'____"---._.       ${LIGHT_CYAN}        $$ | \\______/ \\__|       \\_______| \\_______|\\__|  \\__|  ${RESET}      |
+    |${RESET}    \\                          /       ${LIGHT_CYAN}   $$\\   $$ |                                                         ${RESET} |
+    |${RESET}     \\________________________/        ${LIGHT_CYAN}   \\$$$$$$  |                                                         ${RESET} |
+    |${RESET}     (_)                    (_)         ${LIGHT_CYAN}   \\______/                                                          ${RESET} |
     |                                                                                                                |
     |                                                                                                                |
     |    "A byte of time is a byte of gold, but you can't buy that byte of time, with a byte of gold.”               |
